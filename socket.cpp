@@ -95,6 +95,7 @@ int Socket::Read(ByteArray & buffer)
     ssize_t received = recv(GetFD(), raw, MAX_BUFFER_SIZE, 0);
     for (int i=0;i<received;i++)
         buffer.v.push_back(raw[i]);
+    
     if (received <=0)
         open = false;
     return received;
